@@ -1,0 +1,25 @@
+@model IEnumerable<TMDBMovie>
+
+@{
+  ViewData["Title"] = "Home Page";
+}
+
+@if (ViewData["isData"] == "true")
+{
+  <h1 style="margin-top: 9%;margin-bottom: 7%;">Search Results for @ViewData["searchStr"]</h1>
+  <div class="row">
+    @foreach (var item in Model)
+    {
+      <section class="fatured" style="margin-bottom: 30px;">
+        <a asp-controller="Movies" asp-action="TMDBDetails" asp-route-id="@item.id"><img class="product-img"
+            src="@Url.Content(String.Format("{0}{1}", ViewData["baseImageUrl"], item.poster_path))" alt="@item.title" /></a>
+      </section>
+    }
+
+  </div>
+}
+else
+{
+  <h3 style="margin-top: 9%;margin-bottom: 7%;">@ViewData["msg"]</h3>
+}
+<br /><br /><br />

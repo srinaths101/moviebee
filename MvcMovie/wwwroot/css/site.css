@@ -1,0 +1,528 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+/* a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+} */
+
+/* Provide sufficient contrast against white background */
+/* a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+} */
+
+/* Sticky footer styles
+-------------------------------------------------- */
+/* html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+} */
+
+/* Sticky footer styles
+-------------------------------------------------- */
+/* html {
+  position: relative;
+  min-height: 100%;
+} */
+
+/* body { */
+  /* Margin bottom by footer height */
+  /* margin-bottom: 60px;
+ 
+} */
+.head{
+  height: 500px;
+  width: 1400px;
+	background-image: url("/images/37943.jpg");
+	background-position: center;
+	background-size: cover;
+	
+}
+/* .footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+/* } */
+
+/* ------------------- Custom Styles ------------------------------ */
+
+/* CSS Document */
+body {
+  font-family: acme;
+  margin: 0px;
+  color: white;
+  font-style: normal;
+  font-weight: 300;
+  background-color: #14171c;
+}
+
+.clearfix {
+  overflow: auto;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.page-wrapper {
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header-banner {
+  width: 100%;
+  margin-top: 10px;
+  padding-top: 10px;
+  height: 400px;
+
+  background-position: center;
+  background-size: cover;
+
+  padding-top: 20px;
+}
+
+.aboutus-banner {
+  width: 100%;
+  margin-top: 10px;
+  padding-top: 10px;
+  height: 400px;
+  background-image: url("images/AdobeStock_360734253_Preview.jpeg");
+  background-position: center;
+  background-size: cover;
+
+  padding-top: 20px;
+}
+
+.contactus-banner {
+  width: 100%;
+  margin-top: 10px;
+  padding-top: 10px;
+  height: 400px;
+  background-image: url("images/AdobeStock_293400044_Preview.jpeg");
+  background-position: center;
+  background-size: cover;
+
+  padding-top: 20px;
+}
+
+#logo {
+  float: right;
+  margin-right: 30%;
+  max-width: 200%;
+}
+
+.header-banner img {
+  width: 100%;
+
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navigation-bar {
+  height: 60px;
+  color: black;
+
+}
+
+.navigation-bar ul {
+  text-align: center;
+  list-style-type: none;
+    padding-left: 0px;
+    color: black;
+
+
+}
+
+.navigation-bar h1 {
+  height: 60px;
+  margin-top: 0.5%;
+  font-size: 35px;
+}
+
+.navigation-bar input {
+  float: right;
+  background-color: lightgray;
+  text-align: center;
+  padding: 3px;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 25px;
+  border-radius: 3px;
+  margin-left: 40px;
+  margin-top: 2px;
+  margin-right: 5px;
+  text-align: center;
+
+}
+
+.navigation-bar a {
+  float: right;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+  margin-left: 40px;
+  text-align: center;
+}
+
+.main-head {
+  width: 100%;
+  margin-top: 10px;
+  padding-top: 10px;
+  height: 400px;
+  background-image: url("images/37943.jpg");
+  background-position: center;
+  background-size: cover;
+  color: white;
+
+}
+
+.navigation-bar a:hover {
+  background-color: blue;
+
+}
+
+h1,
+h2,
+h3 {
+  color: orangered;
+  text-align: center;
+  font-style: italic;
+  font-size: 30px;
+}
+
+.main {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+
+}
+
+.containers-feature {
+  margin: 2%;
+
+}
+
+.fatured {
+  display: block;
+  width: 100%;
+}
+
+#pic1 {
+  background-image: url("images/TrialChicago7poster.jpeg");
+
+}
+
+#pic2 {
+  background-image: url("images/TrialChicago7poster.jpeg");
+
+}
+
+#pic4 {
+  background-image: url("images/TrialChicago7poster.jpeg");
+
+}
+
+#pic3 {
+  background-image: url("images/TrialChicago7poster.jpeg");
+
+}
+
+.product-img {
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: solid;
+  border-width: thin;
+}
+
+.product-images {
+  text-align: center;
+}
+
+.fatured {
+  width: 23%;
+  margin-left: 1%;
+  margin-right: 1%;
+
+  float: left;
+  -webkit-box-sizing: border-box;
+
+  box-sizing: border-box;
+
+  -moz-box-sizing: border-box;
+}
+
+.topic-one {
+
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 10px;
+  text-align: center;
+
+  border: thick;
+  box-sizing: border-box
+}
+
+.contact-form {
+  margin: 10px;
+  padding: 10px;
+  width: 100%;
+  align-content: center;
+  float: none;
+  text-align: center;
+
+}
+
+.footer {
+  text-align: center;
+  margin: 4px;
+
+}
+
+.input-one {
+  padding: 5px;
+  margin: 30px;
+  width: 30%;
+  height: 25px;
+  text-align: center;
+  background-color: lightgray;
+
+}
+
+.input-two {
+  padding: 5px;
+  margin: 30px;
+  width: 30%;
+  height: 25px;
+  text-align: center;
+  background-color: lightgray;
+
+}
+
+.input-three {
+  padding: 5px;
+  margin: 20px;
+  width: 15%;
+  text-align: center;
+  background-color: lightgray;
+
+
+}
+
+.input-five {
+  float: left;
+  padding: 5px;
+  margin: 30px;
+  width: 20%;
+  height: 25px;
+  text-align: center;
+  background-color: lightgray;
+
+}
+
+.mapouter {
+  align-content: center;
+  text-align: center;
+}
+
+.gallery-images img {
+  width: 48%;
+  margin: 2px;
+
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+}
+
+.centered a {
+  font-size: 40px;
+  color: white;
+}
+
+.column {
+  float: left;
+  margin-left: 60px;
+  margin-bottom: 3%;
+  width: 42%;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.login-trigger {
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(to bottom right, #B05574, #F87E7B);
+  padding: 15px 30px;
+  border-radius: 30px;
+  position: relative;
+  top: 50%;
+}
+
+/*Modal*/
+h4 {
+  font-weight: bold;
+  color: #fff;
+}
+
+.close {
+  color: #fff;
+  transform: scale(1.2)
+}
+
+.modal-content {
+  font-weight: bold;
+  background: linear-gradient(to bottom right, #F87E7B, #B05574);
+}
+
+.form-control {
+  margin: 1em 0;
+}
+
+.form-control:hover,
+.form-control:focus {
+  box-shadow: none;
+  border-color: #fff;
+}
+
+.username,
+.password {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: 2px solid #eee;
+  padding-left: 0;
+  font-weight: normal;
+  background: transparent;
+}
+
+.form-control::-webkit-input-placeholder {
+  color: #eee;
+}
+
+.form-control:focus::-webkit-input-placeholder {
+  font-weight: bold;
+  color: #fff;
+}
+
+.login {
+  padding: 6px 20px;
+  border-radius: 20px;
+  background: none;
+  border: 2px solid #FAB87F;
+  color: #FAB87F;
+  font-weight: bold;
+  transition: all .5s;
+  margin-top: 1em;
+}
+
+.login:hover {
+  background: #FAB87F;
+  color: #fff;
+}
+
+.row-gap {
+  margin-bottom: 30px;
+}
+
+::placeholder {
+  color: black;
+  opacity: 1;
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  font-size: 30px;
+}
+
+.rating span.star,
+.rating span.star {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+}
+
+.rating span.star:hover,
+.rating span.star:hover {
+  cursor: pointer;
+}
+
+.rating span.star:before,
+.rating span.star:before {
+  content: "★";
+  padding-right: 5px;
+  color: #BEC3C7;
+}
+
+.rating span.star:hover:before,
+.rating span.star:hover:before,
+.rating span.star:hover~span.star:before,
+.rating span.star:hover~span.star:before {
+  content: "★";
+  color: #41CAC0;
+}
+
+.rating span.star.active::before,
+.rating span.star.active::before,
+.rating span.star.active~span.star::before,
+.rating span.star.active~span.star::before {
+  color: #41cac0;
+  content: "★";
+}

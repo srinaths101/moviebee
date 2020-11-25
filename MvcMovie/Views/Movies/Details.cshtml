@@ -1,0 +1,120 @@
+@model Movies
+@* @model MvcMovie.Models.Movie
+
+    @{
+    ViewData["Title"] = "Details";
+    }
+
+    <h1>Details</h1>
+
+    <div>
+    <h4>Movie</h4>
+    <hr />
+    <dl class="row">
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.Title)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.Title)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.ReleaseDate)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.ReleaseDate)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.Genre)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.Genre)
+    </dd>
+    <dt class = "col-sm-2">
+    @Html.DisplayNameFor(model => model.Price)
+    </dt>
+    <dd class = "col-sm-10">
+    @Html.DisplayFor(model => model.Price)
+    </dd>
+    </dl>
+    </div>
+    <div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+    </div> *@
+
+<h1 class="my-4">@Model.title.title</h1>
+<div class="row">
+
+    <div class="col-md-6">
+        <img class="img-fluid" src="@Url.Content(Model.title.image.url)" alt="@Model.title.title">
+    </div>
+
+    <div class="col-md-6">
+        <h3 class="my-3">Storyline</h3>
+        @if (Model.plotSummary != null)
+        { <p>@Model.plotSummary.text</p> }
+        else
+        {
+            <p>@Model.plotOutline.text</p>
+        }
+        <h3 class="my-3">Other Details</h3>
+        <ul>
+            <li>Release Date: @Model.releaseDate</li>
+            <li>Rating: @Model.ratings.rating</li>
+            <li>Genre: @Model.genres[0]</li>
+            <li>Running Time: @Model.title.runningTimeInMinutes min</li>
+        </ul>
+    </div>
+
+</div>
+</div>
+<br /><br />
+<div>
+    <section class="content-item">
+
+        <div class="container">
+
+            <div class="span6" style="float: none; margin: '0 auto'" ; }}>
+                @if (ViewData["isLogin"] == "true")
+                {
+                    <div>
+                        <form action="/Movies/CreateReview?movieId=@Model.title.id" method="post">
+                            <h3 class="pull-left">Write a Review</h3>
+                            <fieldset>
+                                <div class="row">
+                                    <textarea class="form-control" id="review" name="review" placeholder="Your Review"
+                                    required=""></textarea>
+                                </div>
+                            </fieldset>
+                            <button type="submit" class="btn btn-primary pull-right">
+                                Submit
+                            </button>
+                        </form>
+                    </div>
+                }
+                else
+                {
+                    <h3 style="margin-top: 9%;margin-bottom: 7%;">Login or Signup to give a review</h3>
+                }
+
+                @if (ViewData["hasReviews"] == "true")
+                {
+                    <h3>User Reviews</h3>
+                    @foreach (var item in Model.movieReviews)
+                    {
+                        <div class="media">
+                            <div class="media-body">
+                                <h4 class="media-heading">@item.UserName</h4>
+                                <p>@item.MovieReview</p>
+                                <ul class="list-unstyled list-inline media-detail pull-left">
+                                    <li>Date: @item.CreatedAt</li>
+                                </ul>
+                            </div>
+                        </div>
+                    }
+
+                }
+            </div>
+        </div>
+    </section>
+</div>

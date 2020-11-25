@@ -1,0 +1,78 @@
+@model MovieGenreViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<form class="contact-form" asp-controller="Movies" asp-action="GenreMovie" method="get">
+    <div class="row">
+        <div class="col-md-2">
+            <div class="form-group">
+                <label style="margin: 23px;" for="browse by">Browse By :</label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <select class="form-control" id="Genre" asp-for="MovieGenre">
+                    <option value="" disabled selected>Genre</option>
+                    <option value="28">Action</option>
+                    <option value="12">Adventure</option>
+                    <option value="16">Animation</option>
+                    <option value="35">Comedy</option>
+                    <option value="80">Crime</option>
+                    <option value="99">Documentary</option>
+                    <option value="10751">Family</option>
+                    <option value="14">Fantasy</option>
+                    <option value="36">History</option>
+                    <option value="27">Horror</option>
+                    <option value="10402">Music</option>
+                    <option value="9648">Mystery</option>
+                    <option value="10749">Romance</option>
+                    <option value="878">Science Fiction</option>
+                    <option value="10770">TV Movie</option>
+                    <option value="53">Thriller</option>
+                    <option value="10752">War</option>
+                    <option value="37">Western</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <input type="date"   class="form-control"   asp-for="ReleaseDate" placeholder="Release Date">
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group" style="margin-top: 22px">
+                <input type="checkbox" id="popularity" name="popularity" value="sort">
+                <label for="popularity">Sort By Popularity</label><br>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <button class="btn btn-primary form-control">Filter</button>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+@if (ViewData["isData"] == "true")
+{
+    <h1 style="margin-top: 9%;margin-bottom: 7%;">Movies</h1>
+    <div class="row">
+        @foreach (var item in Model.MovieList)
+        {
+            <section class="fatured" style="margin-bottom: 30px;">
+                <a asp-action="TMDBDetails" asp-route-id="@item.id"><img class="product-img"
+                        src="@Url.Content(String.Format("{0}{1}", ViewData["baseImageUrl"], item.poster_path))"
+                        alt="@item.title" /></a>
+            </section>
+        }
+
+    </div>
+}
+else
+{
+    <h3 style="margin-top: 9%;margin-bottom: 7%;">Problem occured while fetching movies. Please refresh & try again</h3>
+}
+<br /><br /><br />

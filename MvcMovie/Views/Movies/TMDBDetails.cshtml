@@ -1,0 +1,137 @@
+    @model Movies
+
+    @{
+    ViewData["Title"] = "Movie Details";
+    }
+
+
+    <h1 class="my-4">@Model.movieDetails.title</h1>
+    <div class="row">
+
+        <div class="col-md-6">
+            <img class="img-fluid" src="@Url.Content(String.Format("{0}{1}", ViewData["baseImageUrl"], Model.movieDetails.poster_path))" alt="@Model.movieDetails.title">
+        </div>
+
+        <div class="col-md-6">
+            <h3 class="my-3">Storyline</h3>
+            @if (Model.movieDetails.overview != null)
+            { <p>@Model.movieDetails.overview</p> }
+            else
+            {
+                <p>Sorry! Summary not present at the moment.</p>
+            }
+            <h3 class="my-3">Other Details</h3>
+            <ul>
+                <li>Release Date: @Model.movieDetails.release_date</li>
+                <li>Rating: @Model.movieDetails.vote_average</li>
+                <li>Genre: @foreach (var item in Model.movieDetails.genres)
+                {
+                <span>@item.name</span>;
+                }</li>
+                <li>Running Time: @Model.movieDetails.runtime min</li>
+            </ul>
+        </div>
+
+    </div>
+    <br /><br />
+
+    <h3 class="my-4">Similar Movies</h1>
+    <div class="row">
+        @foreach (var item in Model.similarMovies)
+            {
+                <section class="fatured" style="margin-bottom: 30px;">
+                    <a asp-action="TMDBDetails" asp-route-id="@item.id"><img class="product-img"
+                            src="@Url.Content(String.Format("{0}{1}", ViewData["baseImageUrl"], item.poster_path))"
+                            alt="@item.title" /></a>
+                </section>
+            }
+    </div>
+
+    <br /><br />
+    <div>
+        <section class="content-item">
+
+            <div class="container">
+
+                <div class="span6" style="float: none; margin: '0 auto'" ; }}>
+                    @if (ViewData["isLogin"] == "true")
+                    {
+                        <div>
+                            <form action="/Movies/CreateReview?movieId=@Model.movieDetails.id" method="post">
+                                <h3 class="pull-left">Rate or Review Movie</h3>
+                                <div class="form-group">
+                                    <label asp-for="@Model.review.Rating" class=""><h4>Rating</h4></label>
+                                    <div >
+                                        <span class="rating">
+                                            @for (int i = 1; i <= 5; i++)
+                                            {
+                                                var starClass = "star setStar";
+                                                if (Model.review.Rating == 6 - i)
+                                                {
+                                                    starClass += " active";
+                                                }
+                                                <span data-value="@(6 - i)" class="@starClass"></span>
+                                            }
+                                        </span>
+                                    </div>
+                                    <input asp-for="@Model.review.Rating" id="Rating" name="Rating"/>
+                                </div>
+                                <h4>Review</h4>
+                                <fieldset>
+                                    <div class="row">
+                                        <textarea class="form-control" style="font-family: cursive;font-size: 20px;color: red;" id="review" name="review" placeholder="Your Review"
+                                        required=""></textarea>
+                                    </div>
+                                </fieldset>
+                                <button type="submit" class="btn btn-primary pull-right">
+                                    Submit
+                                </button>
+                            </form>
+                        </div>
+                    }
+                    else
+                    {
+                        <h3 style="margin-top: 9%;margin-bottom: 7%;">Login or Signup to give a review</h3>
+                    }
+
+                    @if (ViewData["hasReviews"] == "true")
+                    {
+                        <h3>User Reviews</h3>
+                        @foreach (var item in Model.movieReviews)
+                        {
+                            <div class="media">
+                                <div class="media-body">
+                                    <h4 class="media-heading">@item.UserName</h4>
+                                    <label>Rating</label>
+                                    <div>
+                                        <span class="rating">
+                                            @for (int i = 1; i <= 5; i++)
+                                            {
+                                                var starClass = "star";
+                                                if (item.Rating == 6 - i)
+                                                {
+                                                    starClass += " active";
+                                                }
+                                                <span data-value="@(6 - i)" class="@starClass"></span>
+                                            }
+                                        </span>
+                                    </div>
+                                    <p>@item.MovieReview</p>
+                                    <ul class="list-unstyled list-inline media-detail pull-left">
+                                        <li>Date: @item.CreatedAt</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        }
+
+                    }
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    @section Scripts {
+    <script src="~/js/rating.js"></script>
+
+    }

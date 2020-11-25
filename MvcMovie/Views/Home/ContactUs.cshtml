@@ -1,0 +1,29 @@
+@model Contact
+@{
+  ViewData["Title"] = "Contact Us";
+}
+
+<article class="topic-one">
+  <h2>Say Hello</h2>
+  <h2>Send Us Message.</h2>
+</article>
+@if (ViewData["msg"] != "")
+{
+  <h5 style="text-align: center;">@ViewData["msg"]</h5>
+}
+<section>
+  <form class="contact-form" asp-action="ContactUs">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input asp-for="Name" class="input-one" type="text" placeholder="Your Name" style="height:35px;" required>
+
+    <input asp-for="EmailId" class="input-one" type="email" placeholder="Your Email" style="height:35px;" required>
+
+    <div><textarea asp-for="Message" class="input-two" placeholder="Your Message" style="height:100px; width: 400px;"
+        required></textarea>
+    </div>
+    <div>
+      <button class="input-three" type="submit"> Send Message !</button>
+    </div>
+
+  </form>
+</section>
