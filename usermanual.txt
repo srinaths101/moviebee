@@ -1,0 +1,47 @@
+User Manuals
+
+
+Step 1:
+
+Download visual studio code from :
+https://code.visualstudio.com/download
+
+Step 2:
+Download dotnet sdk from:
+https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.403-windows-x64-installer
+install dotnet sdk
+
+Step 3:
+Download Xampp Server from:
+https://www.apachefriends.org/download.html
+install Xampp server
+
+Step 4 :
+Open Xampp control panel  and start  apache and mysql module in it.
+
+Then navigate to "localhost/phpmyadmin" in your browser
+and 
+create database "movie_db".
+
+Step 5 :
+Open your project in visual studio code 
+open terminal by pressing "ctrl + ~" and run:
+"dotnet tool install --global dotnet-ef"
+
+Step 6:
+
+run these commands one by one:
+
+dotnet ef migrations add InitialCreate --context MvcMovieContext
+dotnet ef database update --context MvcMovieContext
+
+ 
+
+dotnet ef migrations add InitialCreate --context MvcMovieIdentityDbContext
+dotnet ef database update --context MvcMovieIdentityDbContext
+
+Step 7:
+
+run "dotnet run "
+and your project will start on :
+"localhost:5001"
